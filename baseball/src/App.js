@@ -14,8 +14,12 @@ class App extends Component {
   }
 
   addCount = event => {
-    const { name } = event.target;
+    let { name } = event.target;
     let count = this.state[name] + 1;
+
+    if(this.state.strike < 2 && name === 'foul') {
+      name = 'strike';
+    }
 
     if((name === 'strike' && count === 3) || (name === 'ball' && count === 4) || name === 'hit') {
       this.setState({
@@ -25,7 +29,7 @@ class App extends Component {
         hit: 0
       })
     } else {
-      this.setState({ [event.target.name]: this.state[event.target.name] + 1 });
+      this.setState({ [name]: this.state[name] + 1 });
     }
   }
 

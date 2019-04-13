@@ -19,8 +19,23 @@ describe('the App component', () => {
   it('should display strike count on button click', () => {
     const { getByText } = render(<App />);
     const button = getByText(/strike\b/i);
-    // console.log(button);
     fireEvent.click(button);
     getByText(/strikes: 1/i)
-  })
+  });
+
+  it('should display ball count on button click', () => {
+    const { getByText } = render(<App />);
+    const button = getByText(/ball\b/i);
+    fireEvent.click(button);
+    getByText(/balls: 1/i)
+  });
+
+  it('should reset strike count after three strikes', () => {
+    const { getByText } = render(<App />);
+    const button = getByText(/strike\b/i);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    getByText(/strikes: 0/i);
+  });
 });
