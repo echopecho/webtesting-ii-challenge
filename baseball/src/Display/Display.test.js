@@ -7,6 +7,9 @@ import Display from './Display';
 describe('the Display component', () => {
    
   it('should render without crashing', () => {
-    render(<Display />);
+    const count = {
+      strike: 0
+    }
+    render(<Display count={count} />);
   });
 });

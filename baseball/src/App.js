@@ -13,11 +13,15 @@ class App extends Component {
     hit: 0
   }
 
+  addStrike = () => {
+    this.setState({ strike: this.state.strike + 1 });
+  }
+
   render() {
     return (
       <div className="App">
-        <Display />
-        <Dashboard />
+        <Display count={this.state} />
+        <Dashboard strike={this.addStrike} />
       </div>
     );
   }

@@ -5,7 +5,7 @@ function Display(props) {
     <div>
       <h2>Display</h2>
       <p>Balls:</p>
-      <p>Strikes:</p>
+      <p>Strikes: {props.count.strike}</p>
     </div>
   )
 }
